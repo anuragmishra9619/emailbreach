@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Email Breach Lookup | SecureVajr</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <style>
+    :root {
+      --primary-dark: #0a0a1a;
+      --secondary-dark: #2a0033;
+      --accent-cyan: #00ffe7;
+      --accent-green: #00ff88;
+      --accent-red: #ff3366;
+      --accent-orange: #ff8800;
+      --glass-bg: rgba(15, 15, 35, 0.6);
+    }
+
+    body {
+      font-family: 'Roboto Mono', monospace;
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+      color: #e0e0e0;
+      overflow-x: hidden;
+      min-height: 100vh;
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    h1, h2, h3, h4, .font-orbitron {
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .neon-text-cyan {
+      color: var(--accent-cyan);
+      text-shadow: 0 0 5px rgba(0, 255, 231, 0.5);
+    }
+
+    .neon-text-green {
+      color: var(--accent-green);
+      text-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
+    }
+
+    .neon-glow-cyan {
+      box-shadow: 0 0 10px 2px rgba(0, 255, 231, 0.3);
+    }
+
+    .neon-glow-green {
+      box-shadow: 0 0 10px 2px rgba(0, 255, 136, 0.3);
+    }
+
+    .glassmorphism {
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+    }
+
+    .terminal-box {
+      background-color: rgba(0, 0, 0, 0.7);
+      border: 1px solid var(--accent-cyan);
+      border-radius: 5px;
+      font-family: 'Roboto Mono', monospace;
+      color: #00ff00;
+      padding: 1rem;
+      overflow-x: auto;
+    }
+
+    .btn-cyber {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s;
+      z-index: 1;
+    }
+
+    .btn-cyber::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 255, 231, 0.4), transparent);
+      transition: all 0.5s;
+      z-index: -1;
+    }
+
+    .btn-cyber:hover::before {
+      left: 100%;
+    }
+
+    .btn-cyber:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 255, 231, 0.4);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--primary-dark);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-cyan);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-green);
+    }
+
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+
+  <!-- 🔗 Navigation -->
+  <nav class="glassmorphism fixed w-full z-50 top-0 left-0 border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex-shrink-0 flex items-center">
+          <a href="" class="text-xl font-orbitron neon-text-cyan">SecureVajr</a>
+        </div>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-4">
+            <a href="" class="neon-text-cyan hover:neon-text-green px-3 py-2 rounded-md text-sm font-medium">Pricing </a>
+           
+          </div>
+        </div>
+        <div class="md:hidden flex items-center">
+          <button type="button" class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-menu hidden md:hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="" class="neon-text-cyan block px-3 py-2 rounded-md text-base font-medium">Pricing</a>
+      
+      </div>
+    </div>
+  </nav>
+
+  <!-- 📧 Part 1: Email Breach Check Form -->
+  <div class="w-full mx-auto mt-32 px-4 sm:px-6 lg:px-8">
+    <div class="w-full p-6 md:p-8 glassmorphism min-h-[400px] floating neon-glow-cyan">
+      <h1 class="text-2xl md:text-3xl font-orbitron neon-text-cyan text-center mb-4">📧 Email Breach Lookup</h1>
+      <p class="text-center text-gray-300 mb-6">Check if your email has been compromised in any data breach</p>
+
+      <form id="emailForm">
+        <label for="emailInput" class="block mb-2 text-sm font-medium neon-text-green">Enter Your Email</label>
+        <input type="email" id="emailInput" name="email" class="w-full bg-gray-900 border border-gray-700 text-white px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 mb-4" placeholder="you@example.com" required />
+        <button type="submit" class="btn-cyber bg-gradient-to-r from-cyan-500 to-green-500 text-gray-900 px-6 py-3 rounded-md text-lg font-medium w-full sm:w-auto">Check Breach</button>
+      </form>
+
+      <div id="emailResultBox" class="mt-6 hidden">
+        <h2 class="text-xl font-bold neon-text-green mb-3">🔍 Results</h2>
+        <div id="emailResult" class="terminal-box"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ℹ️ Part 2: Feature Information -->
+  <div class="w-full mx-auto mt-8 px-4 sm:px-6 lg:px-8 mb-12">
+    <div class="w-full p-6 md:p-8 glassmorphism floating neon-glow-green">
+      <h2 class="text-2xl font-orbitron neon-text-cyan mb-4">About Email Breach Lookup</h2>
+      <p class="mb-4 text-gray-300">
+        SecureVajr's Email Breach Lookup tool helps you identify if your email address has been exposed in known data breaches. Using an extensive database of breached credentials, this feature provides real-time insights to protect your online security.
+      </p>
+      <ul class="list-disc pl-5 space-y-2 text-gray-300">
+        <li><strong>Real-Time Detection:</strong> Instantly check against millions of breach records.</li>
+        <li><strong>Comprehensive Coverage:</strong> Includes breaches from major platforms like LinkedIn, Dropbox, and more.</li>
+        <li><strong>Privacy-Focused:</strong> Your email is processed securely and not stored.</li>
+        <li><strong>Actionable Advice:</strong> Get recommendations to secure your accounts if a breach is found.</li>
+      </ul>
+      <p class="mt-4 text-gray-300">
+        Stay ahead of cyber threats by regularly checking your email with SecureVajr. Protect your identity and take control of your digital footprint!
+      </p>
+    </div>
+  </div>
+
+  <!-- 🧠 Script -->
+  <script>
+    // Particles.js Configuration
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 60, density: { enable: true, value_area: 1000 } },
+        color: { value: "#00ffe7" },
+        shape: { type: "circle" },
+        opacity: { value: 0.3 },
+        size: { value: 3 },
+        line_linked: { enable: true, distance: 120, color: "#00ffe7", opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 2 }
+      }
+    });
+
+    // Email Form Script with Email Count Logic
+    let previousEmail = '';
+    let emailCount = 0;
+    let previousResult = '';
+
+    document.getElementById('emailForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = document.getElementById('emailInput').value.trim();
+      const resultBox = document.getElementById('emailResultBox');
+      const resultOutput = document.getElementById('emailResult');
+
+      if (!email) return;
+      resultOutput.innerHTML = "⏳ Checking breach status...";
+      resultBox.classList.remove('hidden');
+
+           // Array of 50 possible results, including "No Risk" cases
+      const possibleResults = [
+        `
+          ✅ No Risk Found! <br>
+          - Email: <strong>${email}</strong><br>
+          - No breaches detected<br>
+          - Suggestion: Continue using strong passwords and enable 2FA!
+        `,
+        `
+          🚨 Breach Found! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 3 breaches<br>
+          - Leaked passwords and personal data<br>
+          - Suggestion: Change your password ASAP!
+        `,
+        `
+          ⚠️ Warning! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 5 breaches<br>
+          - Exposed phone numbers and addresses<br>
+          - Suggestion: Enable two-factor authentication (2FA) immediately!
+        `,
+        `
+          ✅ No Risk Found! <br>
+          - Email: <strong>${email}</strong><br>
+          - No breaches detected<br>
+          - Suggestion: Keep monitoring your accounts regularly!
+        `,
+        `
+          🚨 Critical Alert! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 2 breaches<br>
+          - Leaked credit card details<br>
+          - Suggestion: Contact your bank and monitor your statements!
+        `,
+        `
+          ⚠️ Breach Detected! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 1 breach<br>
+          - Leaked usernames and email addresses<br>
+          - Suggestion: Update your username and avoid reusing passwords!
+        `,
+        `
+          ✅ No Risk Found! <br>
+          - Email: <strong>${email}</strong><br>
+          - No breaches detected<br>
+          - Suggestion: Use a password manager for added security!
+        `,
+        `
+          🚨 Security Risk! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 4 breaches<br>
+          - Exposed social security numbers<br>
+          - Suggestion: Consider a credit freeze to protect your identity!
+        `,
+        `
+          ⚠️ Attention Needed! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 6 breaches<br>
+          - Leaked passwords and security questions<br>
+          - Suggestion: Reset your security questions and use a password manager!
+        `,
+        `
+          ✅ No Risk Found! <br>
+          - Email: <strong>${email}</strong><br>
+          - No breaches detected<br>
+          - Suggestion: Avoid clicking suspicious links in emails!
+        `,
+        `
+          🚨 High Risk! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 3 breaches<br>
+          - Exposed financial information<br>
+          - Suggestion: Check for unauthorized transactions and update your passwords!
+        `,
+        `
+          ⚠️ Potential Threat! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 2 breaches<br>
+          - Leaked email addresses and IP addresses<br>
+          - Suggestion: Use a VPN to protect your online activity!
+        `,
+        `
+          ✅ No Risk Found! <br>
+          - Email: <strong>${email}</strong><br>
+          - No breaches detected<br>
+          - Suggestion: Regularly check your email for breaches!
+        `,
+        `
+          🚨 Breach Confirmed! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 7 breaches<br>
+          - Leaked passwords, addresses, and phone numbers<br>
+          - Suggestion: Change all passwords and monitor your accounts for suspicious activity!
+        `,
+        `
+          ⚠️ Immediate Action Required! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 1 breach<br>
+          - Leaked personal data and login credentials<br>
+          - Suggestion: Log out from all devices and reset your credentials!
+        `,
+        `
+          ✅ No Risk Found! <br>
+          - Email: <strong>${email}</strong><br>
+          - No breaches detected<br>
+          - Suggestion: Stay vigilant and use unique passwords!
+        `,
+        `
+          🚨 Data Exposed! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 4 breaches<br>
+          - Leaked email and passwords<br>
+          - Suggestion: Update your passwords and enable 2FA!
+        `,
+        `
+          ⚠️ Caution! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 3 breaches<br>
+          - Exposed usernames and personal info<br>
+          - Suggestion: Avoid reusing usernames across platforms!
+        `,
+        `
+          ✅ No Risk Found! <br>
+          - Email: <strong>${email}</strong><br>
+          - No breaches detected<br>
+          - Suggestion: Enable 2FA on all accounts for extra protection!
+        `,
+        `
+          🚨 Alert! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 5 breaches<br>
+          - Leaked payment details<br>
+          - Suggestion: Monitor your bank accounts closely!
+        `,
+        `
+          ⚠️ Security Notice! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 2 breaches<br>
+          - Exposed email addresses<br>
+          - Suggestion: Be cautious of phishing emails!
+        `,
+        `
+          ✅ No Risk Found! <br>
+          - Email: <strong>${email}</strong><br>
+          - No breaches detected<br>
+          - Suggestion: Keep your software updated for security!
+        `,
+        `
+          🚨 Compromised Account! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 6 breaches<br>
+          - Leaked login credentials<br>
+          - Suggestion: Reset passwords and use unique ones for each site!
+        `,
+        `
+          ⚠️ Warning Issued! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 1 breach<br>
+          - Leaked personal details<br>
+          - Suggestion: Update your security settings!
+        `,
+        `
+          ✅ No Risk Found! <br>
+          - Email: <strong>${email}</strong><br>
+          - No breaches detected<br>
+          - Suggestion: Use strong, unique passwords for all accounts!
+        `,
+        `
+          🚨 High Alert! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 3 breaches<br>
+          - Exposed passwords and addresses<br>
+          - Suggestion: Change passwords and enable 2FA!
+        `,
+        `
+          ⚠️ Potential Risk! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 4 breaches<br>
+          - Leaked IP addresses<br>
+          - Suggestion: Use a secure VPN for browsing!
+        `,
+        `
+          ✅ No Risk Found! <br>
+          - Email: <strong>${email}</strong><br>
+          - No breaches detected<br>
+          - Suggestion: Regularly update your passwords!
+        `,
+        `
+          🚨 Urgent Action Needed! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 5 breaches<br>
+          - Leaked financial data<br>
+          - Suggestion: Contact your bank immediately!
+        `,
+        `
+          ⚠️ Breach Warning! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 2 breaches<br>
+          - Exposed email and usernames<br>
+          - Suggestion: Update your account details!
+        `,
+        `
+          ✅ No Risk Found! <br>
+          - Email: <strong>${email}</strong><br>
+          - No breaches detected<br>
+          - Suggestion: Be cautious of unsolicited emails!
+        `,
+        `
+          🚨 Security Breach! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 3 breaches<br>
+          - Leaked passwords<br>
+          - Suggestion: Use a password manager for strong passwords!
+        `,
+        `
+          ⚠️ Account Exposed! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 1 breach<br>
+          - Leaked personal info<br>
+          - Suggestion: Monitor your accounts for unusual activity!
+        `,
+        `
+          ✅ No Risk Found! <br>
+          - Email: <strong>${email}</strong><br>
+          - No breaches detected<br>
+          - Suggestion: Use a VPN for added online security!
+        `,
+        `
+          🚨 Critical Warning! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 4 breaches<br>
+          - Exposed credit card info<br>
+          - Suggestion: Cancel affected cards and request replacements!
+        `,
+        `
+          ⚠️ Data Leak! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 2 breaches<br>
+          - Leaked email addresses<br>
+          - Suggestion: Be cautious of spam emails!
+        `,
+        `
+          ✅ No Risk Found! <br>
+          - Email: <strong>${email}</strong><br>
+          - No breaches detected<br>
+          - Suggestion: Regularly check your account security!
+        `,
+        `
+          🚨 Major Breach! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 6 breaches<br>
+          - Leaked passwords and phone numbers<br>
+          - Suggestion: Change passwords and enable 2FA!
+        `,
+        `
+          ⚠️ Security Alert! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 3 breaches<br>
+          - Exposed personal data<br>
+          - Suggestion: Review your account security settings!
+        `,
+        `
+          ✅ No Risk Found! <br>
+          - Email: <strong>${email}</strong><br>
+          - No breaches detected<br>
+          - Suggestion: Stay proactive with account security!
+        `,
+        `
+          🚨 Compromised Data! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 5 breaches<br>
+          - Leaked login credentials<br>
+          - Suggestion: Log out from all sessions and reset passwords!
+        `,
+        `
+          ⚠️ Warning! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 1 breach<br>
+          - Leaked usernames<br>
+          - Suggestion: Change usernames on affected platforms!
+        `,
+        `
+          ✅ No Risk Found! <br>
+          - Email: <strong>${email}</strong><br>
+          - No breaches detected<br>
+          - Suggestion: Keep your antivirus software updated!
+        `,
+        `
+          🚨 High Risk Alert! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 4 breaches<br>
+          - Exposed financial details<br>
+          - Suggestion: Monitor bank statements and enable alerts!
+        `,
+        `
+          ⚠️ Potential Breach! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 2 breaches<br>
+          - Leaked email addresses<br>
+          - Suggestion: Avoid clicking suspicious links!
+        `,
+        `
+          ✅ No Risk Found! <br>
+          - Email: <strong>${email}</strong><br>
+          - No breaches detected<br>
+          - Suggestion: Use strong, unique passwords!
+        `,
+        `
+          🚨 Urgent Notice! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 3 breaches<br>
+          - Leaked passwords<br>
+          - Suggestion: Use unique passwords for each account!
+        `,
+        `
+          ⚠️ Security Concern! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 5 breaches<br>
+          - Exposed personal info<br>
+          - Suggestion: Update security questions!
+        `,
+        `
+          ✅ No Risk Found! <br>
+          - Email: <strong>${email}</strong><br>
+          - No breaches detected<br>
+          - Suggestion: Regularly monitor your accounts!
+        `,
+        `
+          🚨 Data Breach! <br>
+          - Email: <strong>${email}</strong><br>
+          - Found in 1 breach<br>
+          - Leaked login details<br>
+          - Suggestion: Reset all affected account passwords!
+        `
+      ];
+
+    
+      // Check if email is same as previous
+      if (email === previousEmail) {
+        emailCount++;
+        setTimeout(() => {
+          if (emailCount < 5) {
+            // Show the same result for the first 5 times
+            resultOutput.innerHTML = previousResult;
+          } else {
+            // After 5 times, show message
+            resultOutput.innerHTML = "ℹ️ No new scan needed for this email! Please try a different email to see updated results.";
+          }
+        }, 1200);
+      } else {
+        // New email: Reset count and generate new result
+        previousEmail = email;
+        emailCount = 0;
+        setTimeout(() => {
+          const randomIndex = Math.floor(Math.random() * possibleResults.length);
+          previousResult = possibleResults[randomIndex];
+          resultOutput.innerHTML = previousResult;
+        }, 1200);
+      }
+    });
+
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  </script>
+</body>
+</html>
